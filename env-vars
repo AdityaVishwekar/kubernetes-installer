@@ -1,0 +1,12 @@
+### Authentication details
+export TF_VAR_tenancy_ocid="ocid1.tenancy.oc1..aaaaaaaaqaghoakhcdlsdsej676gkzli4gbeeqw3ge46kgnm224lagmfj4xq"
+export TF_VAR_user_ocid="ocid1.user.oc1..aaaaaaaangsahezapgxbyaj7shxhbgzghxpiumy5bcwadbtln67btb5sampq"
+export TF_VAR_fingerprint="04:cd:31:f8:b4:87:e1:3c:c8:5d:3d:2d:ed:8e:1a:d0"
+export TF_VAR_private_key_path="/home/osboxes/Downloads/oci_api_key.pem"
+### Region
+export TF_VAR_region="us-ashburn-1"
+### Compartment ocid
+export TF_VAR_compartment_ocid="ocid1.compartment.oc1..aaaaaaaajdloco2usq6y24dudqirugj6ej44mpooogjes3penwtye4wp42uq"
+### Public/private keys used on the instance
+#export TF_VAR_ssh_public_key=$(cat exampleTerraform/oci_api_key.pub)
+#export TF_VAR_ssh_private_key=$(cat exampleTerraform/oci_api_key.pem)
