@@ -8,6 +8,7 @@ ExecStart=/usr/bin/kubelet \
   --cluster_dns=10.21.21.21 \
   --cluster_domain=cluster.local \
   --container-runtime=docker \
+  --cgroup-driver=systemd \
   --docker=unix:///var/run/docker.sock \
   --hostname-override=__FQDN_HOSTNAME__ \
   --kubeconfig=/etc/kubernetes/manifests/worker-kubeconfig.yaml \
