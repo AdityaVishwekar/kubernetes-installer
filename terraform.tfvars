@@ -4,7 +4,7 @@
 tenancy_ocid = "ocid1.tenancy.oc1..aaaaaaaaqaghoakhcdlsdsej676gkzli4gbeeqw3ge46kgnm224lagmfj4xq"
 compartment_ocid = "ocid1.compartment.oc1..aaaaaaaajdloco2usq6y24dudqirugj6ej44mpooogjes3penwtye4wp42uq"
 fingerprint = "04:cd:31:f8:b4:87:e1:3c:c8:5d:3d:2d:ed:8e:1a:d0"
-private_key_path = "/home/osboxes/Downloads/oci_api_key.pem"
+private_key_path = "/home/opc/Downloads/oci_api_key.pem"
 user_ocid = "ocid1.user.oc1..aaaaaaaangsahezapgxbyaj7shxhbgzghxpiumy5bcwadbtln67btb5sampq"
 region="us-ashburn-1"
 
