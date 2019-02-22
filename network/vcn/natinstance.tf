@@ -6,12 +6,10 @@ resource "oci_core_instance" "NATInstanceAD1" {
   count               = "${(var.control_plane_subnet_access == "private") && (var.nat_instance_ad1_enabled == "true") ? "1" : "0"}"
   availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[0],"name")}"
   compartment_id      = "${var.compartment_ocid}"
-#  display_name        = "${var.label_prefix}nat-ad1"
+  display_name        = "${var.label_prefix}nat-ad1"
   image               = "${lookup(data.oci_core_images.ImageOCID.images[0], "id")}"
   shape               = "${var.nat_instance_shape}"
-  #operating_system = "Oracle Linux"
-  #operating_system_version = "7.6"
-  
+
   create_vnic_details {
     subnet_id = "${(var.control_plane_subnet_access == "private") && (var.dedicated_nat_subnets == "true") ? "${element(concat(oci_core_subnet.NATSubnetAD1.*.id,list("")),0)}" : "${oci_core_subnet.PublicSubnetAD1.id}"}"
 
@@ -35,11 +33,9 @@ resource "oci_core_instance" "NATInstanceAD2" {
   count               = "${(var.control_plane_subnet_access == "private") && (var.nat_instance_ad2_enabled == "true") ? "1" : "0"}"
   availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[1],"name")}"
   compartment_id      = "${var.compartment_ocid}"
- # display_name        = "${var.label_prefix}nat-ad2"
+  display_name        = "${var.label_prefix}nat-ad2"
   image               = "${lookup(data.oci_core_images.ImageOCID.images[0], "id")}"
   shape               = "${var.nat_instance_shape}"
-  #operating_system = "Oracle Linux"
-  #operating_system_version = "7.6"
 
   create_vnic_details {
     subnet_id = "${(var.control_plane_subnet_access == "private") && (var.dedicated_nat_subnets == "true") ? "${element(concat(oci_core_subnet.NATSubnetAD2.*.id,list("")),0)}" : "${oci_core_subnet.PublicSubnetAD2.id}"}"
@@ -62,11 +58,9 @@ resource "oci_core_instance" "NATInstanceAD3" {
   count               = "${(var.control_plane_subnet_access == "private") && (var.nat_instance_ad3_enabled == "true") ? "1" : "0"}"
   availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[2],"name")}"
   compartment_id      = "${var.compartment_ocid}"
- # display_name        = "${var.label_prefix}nat-ad3"
+  display_name        = "${var.label_prefix}nat-ad3"
   image               = "${lookup(data.oci_core_images.ImageOCID.images[0], "id")}"
   shape               = "${var.nat_instance_shape}"
- # operating_system = "Oracle Linux"
- # operating_system_version = "7.6"
 
   create_vnic_details {
     subnet_id = "${(var.control_plane_subnet_access == "private") && (var.dedicated_nat_subnets == "true") ? "${element(concat(oci_core_subnet.NATSubnetAD3.*.id,list("")),0)}" : "${oci_core_subnet.PublicSubnetAD3.id}"}"

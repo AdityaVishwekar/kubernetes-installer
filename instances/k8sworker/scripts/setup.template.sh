@@ -17,7 +17,7 @@ export IP_LOCAL=$(ip route show to 0.0.0.0/0 | awk '{ print $5 }' | xargs ip add
 
 SUBNET=$(getent hosts $IP_LOCAL | awk '{print $2}' | cut -d. -f2)
 export WORKER_IP=$IP_LOCAL
-
+swapoff -a
 ## k8s_ver swap option
 ######################################
 k8sversion="${k8s_ver}"
@@ -73,7 +73,7 @@ if [ -n "$${iqn}" ]; then
     mount -t xfs "/dev/disk/by-path/ip-169.254.2.2:3260-iscsi-$${iqn}-lun-1" ${worker_iscsi_volume_mount}
 fi
 
-until yum -y install docker-engine-${docker_ver}; do sleep 1 && echo -n "."; done
+until yum -y install docker; do sleep 1 && echo -n "."; done
 
 cat <<EOF > /etc/sysconfig/docker
 OPTIONS="--selinux-enabled --log-opt max-size=${docker_max_log_size} --log-opt max-file=${docker_max_log_files}"
@@ -200,6 +200,9 @@ systemctl enable kubelet
 systemctl start kubelet
 
 yum install -y nfs-utils
+
+## Disable the swap space on /etc/fstab
+sed -e '/swap/ s/^#*/#/' -i /etc/fstab
 
 ######################################
 echo "Finished running setup.sh"

@@ -47,7 +47,7 @@ done
 
 ## Docker
 ######################################
-until yum -y install docker-engine-${docker_ver}; do sleep 1 && echo -n "."; done
+until yum -y install docker; do sleep 1 && echo -n "."; done
 
 cat <<EOF > /etc/sysconfig/docker
 OPTIONS="--selinux-enabled --log-opt max-size=${docker_max_log_size} --log-opt max-file=${docker_max_log_files}"
@@ -83,7 +83,7 @@ sudo sed -i  s/SELINUX=enforcing/SELINUX=permissive/ /etc/selinux/config
 setenforce 0
 systemctl stop firewalld.service
 systemctl disable firewalld.service
-
+swapoff -a
 ## Install Flex Volume Driver for OCI
 #####################################
 mkdir -p /usr/libexec/kubernetes/kubelet-plugins/volume/exec/oracle~oci/
@@ -203,5 +203,8 @@ kubectl patch storageclass oci -p '{"metadata": {"annotations":{"storageclass.ku
 rm -f /root/volume-provisioner-secret.yaml
 
 yum install -y nfs-utils
+
+## Disable the swap space on /etc/fstab
+sed -e '/swap/ s/^#*/#/' -i /etc/fstab
 
 echo "Finished running setup.sh"

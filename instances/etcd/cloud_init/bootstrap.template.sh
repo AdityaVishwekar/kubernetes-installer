@@ -12,7 +12,7 @@ yum-config-manager --disable ol7_UEKR3
 yum-config-manager --enable ol7_addons ol7_latest ol7_UEKR4 ol7_optional ol7_optional_latest
 
 # Install Docker
-until yum -y install docker-engine-${docker_ver}; do sleep 1 && echo -n "."; done
+until yum -y install docker; do sleep 1 && echo -n "."; done
 
 cat <<EOF > /etc/sysconfig/docker
 OPTIONS="--selinux-enabled --log-opt max-size=${docker_max_log_size} --log-opt max-file=${docker_max_log_files}"
@@ -87,3 +87,7 @@ while ! curl -L https://github.com/coreos/etcd/releases/download/${etcd_ver}/etc
 	echo "Try again"
 done
 tar zxf /tmp/etcd-${etcd_ver}-linux-amd64.tar.gz -C /tmp/ && cp /tmp/etcd-${etcd_ver}-linux-amd64/etcd* /usr/local/bin/
+
+## Disable the swap space on /etc/fstab
+sed -e '/swap/ s/^#*/#/' -i /etc/fstab
+

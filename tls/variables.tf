@@ -41,7 +41,7 @@ variable "master_lb_public_ip" {}
 
 variable "ssh_private_key" {
   description = "SSH private key for instances (generated if left blank)"
-  default     = "~/.ssh/oracle_keys.pem"
+  default     = ""
 }
 
 variable "ssh_public_key_openssh" {

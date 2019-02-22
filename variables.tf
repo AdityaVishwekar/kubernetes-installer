@@ -349,22 +349,19 @@ variable "k8s_dns_ver" {
 }
 
 variable "master_ol_image_name" {
-  default = "CentOS-6.10-2019.01.14-0"
+  default = "Oracle-Linux-7.5-2018.10.16-0"
 }
 
 variable "worker_ol_image_name" {
-  #default = "Oracle-Linux-7.6-2018.11.19-0"
-  default = "CentOS-6.10-2019.01.14-0"
+  default = "Oracle-Linux-7.5-2018.10.16-0"
 }
 
 variable "etcd_ol_image_name" {
-  #default = "Oracle-Linux-7.6-2018.11.19-0"
-  default = "CentOS-6.10-2019.01.14-0"
+  default = "Oracle-Linux-7.5-2018.10.16-0"
 }
 
 variable "nat_ol_image_name" {
-  #default = "Oracle-Linux-7.6-2018.11.19-0"
-  default = "CentOS-6.10-2019.01.14-0"
+  default = "Oracle-Linux-7.5-2018.10.16-0"
 }
 
 variable "control_plane_subnet_access" {
