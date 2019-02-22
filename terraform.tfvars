@@ -9,7 +9,7 @@ region="us-ashburn-1"
 
 tenancy_ocid = "ocid1.tenancy.oc1..aaaaaaaaqaghoakhcdlsdsej676gkzli4gbeeqw3ge46kgnm224lagmfj4xq"
 compartment_ocid = "ocid1.compartment.oc1..aaaaaaaajdloco2usq6y24dudqirugj6ej44mpooogjes3penwtye4wp42uq"
-fingerprint = "${params.fingerprint}"
+fingerprint = "${fingerprint}"
 private_key_path = "./oci_api_key.pem"
 user_ocid = "ocid1.user.oc1..aaaaaaaangsahezapgxbyaj7shxhbgzghxpiumy5bcwadbtln67btb5sampq"
 
