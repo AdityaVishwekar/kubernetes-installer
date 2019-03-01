@@ -1,6 +1,6 @@
 
 locals {
-  master_lb_ip      = "${var.master_oci_lb_enabled == "true" ? element(concat(flatten(module.k8smaster-public-lb.ip_addresses), list("")), 0) : "127.0.0.1"}"
+  master_lb_ip      = "127.0.0.1"
   master_lb_address = "${format("https://%s:%s", local.master_lb_ip, var.master_oci_lb_enabled == "true" ? "443" : "6443")}"
 
   reverse_proxy_clount_init = "${var.master_oci_lb_enabled == "true" ? "" : module.reverse-proxy.clount_init}"
@@ -479,5 +479,5 @@ module "kubeconfig" {
   source                     = "./kubernetes/kubeconfig"
   api_server_private_key_pem = "${module.k8s-tls.api_server_private_key_pem}"
   api_server_cert_pem        = "${module.k8s-tls.api_server_cert_pem}"
-  k8s_master                 = "${var.master_oci_lb_enabled == "true" ? local.master_lb_address : format("https://%s:%s", element(coalescelist(module.instances-k8smaster-ad1.public_ips, module.instances-k8smaster-ad2.public_ips, module.instances-k8smaster-ad3.public_ips), 0), "443")}"
+  k8s_master                 = "${local.master_lb_address}"
 }

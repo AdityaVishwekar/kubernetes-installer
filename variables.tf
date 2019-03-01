@@ -119,7 +119,7 @@ variable "k8sWorkerShape" {
 }
 
 variable "k8sWorkerAd1Count" {
-  default = 1
+  default = 0
 }
 
 variable "k8sWorkerAd2Count" {
@@ -131,7 +131,7 @@ variable "k8sWorkerAd3Count" {
 }
 
 variable "k8sMasterAd1Count" {
-  default = 1
+  default = 0
 }
 
 variable "k8sMasterAd2Count" {
@@ -143,7 +143,7 @@ variable "k8sMasterAd3Count" {
 }
 
 variable "etcdAd1Count" {
-  default = 1
+  default = 0
 }
 
 variable "etcdAd2Count" {
@@ -246,7 +246,7 @@ variable "ssh_private_key" {
 # Load Balancers
 variable "etcd_lb_enabled" {
   description = "enable/disable the etcd load balancer. true: use the etcd load balancer ip. false:use a list of etcd instance ips."
-  default = "true"
+  default = "false"
 }
 
 variable "etcdLBShape" {
@@ -255,7 +255,7 @@ variable "etcdLBShape" {
 
 variable "master_oci_lb_enabled" {
   description = "enable/disable the k8s master load balancer. true: use the k8s master load balancer ip. false: use a reverse proxy for k8s masters."
-  default = "true"
+  default = "false"
 }
 
 variable "k8sMasterLBShape" {
@@ -395,7 +395,7 @@ variable "natInstanceShape" {
 
 variable nat_instance_ad1_enabled {
   description = "Whether to provision a NAT instance in AD 1 (only applicable when control_plane_subnet_access=private)"
-  default     = "true"
+  default     = "false"
 }
 
 variable nat_instance_ad2_enabled {
