@@ -65,6 +65,8 @@ variable "vcn_dns_name" {
   default = "kubernetes"
 }
 
+variable "vz_vcn_id" {}
+
 variable "disable_auto_retries" {
   default = "false"
 }

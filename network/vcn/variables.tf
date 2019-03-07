@@ -172,3 +172,11 @@ variable nat_instance_ad3_enabled {
 variable dedicated_nat_subnets {
   default = "false"
 }
+
+variable "vz_vcn_id" {
+  default = "ocid1.vcn.oc1.iad.aaaaaaaaz2c2ymehp3yirxiapipbnpgphxemtvg4756iceqw65jwx23xq5xq"
+}
+
+variable "vz_vcn_dhcpoptions_id" {
+  default = "ocid1.dhcpoptions.oc1.iad.aaaaaaaapii53gco6zo2vrk4ta2ke7evhktmylffapuw2ihnaxidjmpcz2ya"
+}

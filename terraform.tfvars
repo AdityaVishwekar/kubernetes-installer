@@ -70,3 +70,5 @@ worker_iscsi_volume_size = 100
 
 etcd_iscsi_volume_create = true
 etcd_iscsi_volume_size = 50
+
+vz_vcn_id = "ocid1.vcn.oc1.iad.aaaaaaaaz2c2ymehp3yirxiapipbnpgphxemtvg4756iceqw65jwx23xq5xq"

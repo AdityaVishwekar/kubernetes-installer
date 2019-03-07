@@ -1,5 +1,5 @@
 output "id" {
-  value = "${oci_core_virtual_network.CompleteVCN.id}"
+  value = "${var.vz_vcn_id}"
 }
 
 output "etcd_subnet_ad1_id" {
@@ -109,5 +109,5 @@ output "route_for_complete_id" {
 }
 
 output "dhcp_options_id" {
-  value = "${oci_core_virtual_network.CompleteVCN.default_dhcp_options_id}"
+  value = "${var.vz_vcn_dhcpoptions_id}"
 }
